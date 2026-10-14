@@ -1,3 +1,5 @@
+<body>
+  
 <script src="https://cdn.jsdelivr.net/gh/netizenorg/netnet-standard-library@1.0.1/build/nn.min.js"></script>
 <script>
 
@@ -11,7 +13,7 @@
     nn.create('img')
       .set('src', 'skeleton_hit.gif')
       .positionOrigin('center')
-      .position(450, 300)
+      .position(450, 480)
       .css('pointer-events', 'none')
       .addTo('body')
     }
@@ -20,13 +22,68 @@
     nn.create('img')
       .set('src', 'knight_hit.gif')
       .positionOrigin('center')
-      .position(400, 300)
+      .position(400, 480)
       .css('pointer-events', 'none')
       .addTo('body')
       .css('width', '400px')
      }
+    if (e.key === '1') {
+    // otherwise, create a new gif
+    nn.create('img')
+      .set('src', 'goblin_hit.gif')
+      .positionOrigin('center')
+      .position(100, 480)
+      .css('pointer-events', 'none')
+      .addTo('body')
+    }
+    if (e.key === '2') {
+    // otherwise, create a new gif
+    nn.create('img')
+      .set('src', 'knight_2_fighting.gif')
+      .positionOrigin('center')
+      .position(180, 425)
+      .css('pointer-events', 'none')
+      .addTo('body')
+      .css('width', '400px')
+    }
+    if (e.key === '3') {
+    // otherwise, create a new gif
+    nn.create('img')
+      .set('src', 'goblin_2_hit.gif')
+      .positionOrigin('center')
+      .position(450, 250)
+      .css('pointer-events', 'none')
+      .addTo('body')
+    }
+    if (e.key === '4') {
+    // otherwise, create a new gif
+    nn.create('img')
+      .set('src', 'knight_3_fighting.gif')
+      .positionOrigin('center')
+      .position(360, 230)
+      .css('pointer-events', 'none')
+      .addTo('body')
+      .css('width', '350px')
+    }
+    if (e.key === '0') {
+    // otherwise, create a new gif
+    nn.create('img')
+      .set('src', 'king.gif')
+      .positionOrigin('center')
+      .position(100, 300)
+      .css('pointer-events', 'none')
+      .addTo('body')
+    }
   }
   
+  nn.create('img')
+      .set('src', 'castle.jpg') 
+      .positionOrigin('center')
+      .css('pointer-events', 'none')
+      .addTo('body')
+      .css('width', nn.width)
+      .css('height', nn.height)
+      
    
   // click and drag mouse across the screen
   // to draw new gif img elements
@@ -36,3 +93,4 @@
       
 
 </script>
+</body>
