@@ -1,18 +1,31 @@
 <script src="https://cdn.jsdelivr.net/gh/netizenorg/netnet-standard-library@1.0.1/build/nn.min.js"></script>
 <script>
-  function drawGifs () {
+
+  nn.get('body')
+  
+  function drawGifs (e) {
     // if mouse is not (!) pressed down exit function
-    if (!nn.mouseDown) return
+    if (e.key === 's') {
     // otherwise, create a new gif
     nn.create('img')
-      .set('src', "https://giphy.com/gifs/meme-animated-memes-HlPzbWboq9xtGGlFQ5")
+      .set('src', 'skeleton_hit.gif')
       .positionOrigin('center')
-      .position(nn.mouseX, nn.mouseY)
+      .position(450, 300)
       .css('pointer-events', 'none')
       .addTo('body')
+    }
+    if (e.key === 'k') {
+    // otherwise, create a new gif
+    nn.create('img')
+      .set('src', 'knight_hit.gif')
+      .positionOrigin('center')
+      .position(400, 300)
+      .css('pointer-events', 'none')
+      .addTo('body')
+     }
   }
 
   // click and drag mouse across the screen
   // to draw new gif img elements
-  nn.on('mousemove', drawGifs)
+  nn.on('keydown', drawGifs)
 </script>
