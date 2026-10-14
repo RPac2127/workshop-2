@@ -22,8 +22,17 @@
       .position(400, 300)
       .css('pointer-events', 'none')
       .addTo('body')
+      .css('width', '400px')
      }
   }
+  
+    nn.create('img')
+      .set('src', 'castle.jpg')
+      .positionOrigin('center')
+      .css('pointer-events', 'none')
+      .addTo('body')
+      .css('width', nn.width)
+      .css('height', nn.height)
 
   // click and drag mouse across the screen
   // to draw new gif img elements
