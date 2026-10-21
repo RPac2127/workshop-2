@@ -84,12 +84,76 @@
       .css('height', nn.height)
 
 
-    // click and drag mouse across the screen
-    // to draw new gif img elements
+    
     nn.on('keydown', drawGifs) 
     
-   
-      
+const running = { a: false, b: false, c: false }
+
+function zigzag (name, imgs, homes) {
+  if (running[name]) return           
+  if (imgs.includes(undefined)) return 
+  running[name] = true
+
+  let count = 0
+  let dy = 20
+
+  const timer = setInterval(function () {
+    count = count + 1
+    imgs.forEach(function (img, i) {
+      img.position(homes[i][0] + count * 8, homes[i][1] + dy)
+    })
+    dy = dy * -1
+    if (count === 15) {
+      clearInterval(timer)
+      imgs.forEach(function (img, i) {
+        img.position(homes[i][0], homes[i][1])
+      })
+      running[name] = false
+    }
+  }, 80)
+}
+
+function moveGifs (e) {
+  if (e.key === 'a') zigzag('a', [knight_1, skeleton], [[400, 480], [450, 480]])
+  if (e.key === 'b') zigzag('b', [knight_2, goblin_1], [[180, 425], [100, 480]])
+  if (e.key === 'c') zigzag('c', [knight_3, goblin_2], [[360, 230], [450, 250]])
+}
+
+nn.on('keydown', moveGifs)
+
+swordsound = nn.create("audio")
+              .set('controls', 'true')
+              .set('src', 'sword.mp3')
+              .addTo('body')
+              .set('preload', 'auto')
+              .set('style', 'display:none')
+    
+    
+function playOnce() {
+  swordsound.currentTime = 0 
+  swordsound.play()
+  }
+  
+
+function play(e){
+  if (e.key === 'a'){
+    playOnce()
+    setTimeout(playOnce, 400)
+    setTimeout(playOnce, 800)
+  }
+  if (e.key === 'b'){
+    playOnce()
+    setTimeout(playOnce, 400)
+    setTimeout(playOnce, 800)
+  }
+  if (e.key === 'c'){
+    playOnce()
+    setTimeout(playOnce, 400)
+    setTimeout(playOnce, 800)
+  }
+}
+  
+nn.on('keydown', play)    
       
   </script>
 </body>
